@@ -99,7 +99,13 @@ $(function () {
         // for(var i = 0; i < crazyLaws.length; i++)
     //   console.log(this.options.length);
    
-    $("#option_2").text(this.question + " " + this.options + " "); 
+    // $("#option_2").append(this.question + " " + this.options + " "); 
+    var choices = this.options.splice(', ')
+    console.log(choices);
+    // this.question  = $("<div>")
+    // this.options = $("<div>")
+    var markup = "<tr class='Laws'><td>" + this.question + "</td></tr>" + "<tr><td><input type='radio' name='record'></td><td>" + choices[0] + "<tr><td><input type='checkbox' name='record'></td><td>" + choices[1] + "<tr><td><input type='checkbox' name='record'></td><td>" + choices[2] + "<tr><td><input type='checkbox' name='record'></td><td>" + choices[3] + "</tr>";
+    $("#option_1").append(markup);
 
         // $("#option_1").append(this.options[0] + " "); 
         // $("#option_2").append(this.options[1] + " ");
@@ -121,10 +127,11 @@ $(function () {
         // console.log(law); 
         // console.log(this.question.length);
         // console.log("Right Answer: " + this.rightAnswer);
-        console.log("Options: " + this.options.length);
+        // console.log("Options: " + this.options.length);
     
       
 });
+
 // var radio = $('<input/>');
 // radio.attr({ type: 'radio', name:'rad'}).addClass("op");
 // $("#answers").append(radio + answers + " ");
