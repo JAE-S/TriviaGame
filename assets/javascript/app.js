@@ -18,8 +18,9 @@ var na = 0;      // Questions Not Answered
 var time = 0;   // Countdown clock
 
 
-
-var crazyLaws = [{ 
+$(function () {
+    var crazyLaws = [
+            { 
             // Question 1
             question: "...let your donkey sleep in a bathtub?",
             rightAnswer: "Arizona",
@@ -89,64 +90,53 @@ var crazyLaws = [{
             question: "...kill Bigfoot / Sasquatch / Yeti?",
             rightAnswer: "Washington",
             options: ["Washington", "Alaska", "New Hampshire", "North Dakota"],
-        }]
+        }
+       
+    ];
 
-    console.log([crazyLaws]);
-    console.log(crazyLaws[0].question);
-    console.log(crazyLaws[0].rightAnswer);
-    console.log(crazyLaws[0].options);
+    $.each(crazyLaws, function () { // Loops through crazy laws objects 
+        console.log("Question: " + this.question);
+        // for(var i = 0; i < crazyLaws.length; i++)
+    //   console.log(this.options.length);
    
-    console.log(crazyLaws[1].question);
-    console.log(crazyLaws[1].rightAnswer);
-    console.log(crazyLaws[1].options);
+    $("#option_2").text(this.question + " " + this.options + " "); 
 
-    console.log(crazyLaws[2].question);
-    console.log(crazyLaws[2].rightAnswer);
-    console.log(crazyLaws[2].options);
+        // $("#option_1").append(this.options[0] + " "); 
+        // $("#option_2").append(this.options[1] + " ");
+        // $("#option_3").append(this.options[2] + " ");
+        // $("#option_4").append(this.options[3] + " ");
+      
+   
+            // $("#questions-view").append(answers + this.options + );
+            // });
+        // var q = $('<div class="laws">');
+        //     q.text(this.question);
+        // $('#questions-view').append(q); 
 
-    console.log(crazyLaws[3].question);
-    console.log(crazyLaws[3].rightAnswer);
-    console.log(crazyLaws[3].options);
-
-    console.log(crazyLaws[4].question);
-    console.log(crazyLaws[4].rightAnswer);
-    console.log(crazyLaws[4].options);
+        
+            // var answers = $('<input/>');
+            // answers.attr({ type: 'radio', name:'rad'}).addClass("rad");
+            // $("#questions-view").append(answers + this.options + );
+            // });
+        // console.log(law); 
+        // console.log(this.question.length);
+        // console.log("Right Answer: " + this.rightAnswer);
+        console.log("Options: " + this.options.length);
     
-    console.log(crazyLaws[5].question);
-    console.log(crazyLaws[5].rightAnswer);
-    console.log(crazyLaws[5].options);
-
-    console.log(crazyLaws[6].question);
-    console.log(crazyLaws[6].rightAnswer);
-    console.log(crazyLaws[6].options);
-
-    console.log(crazyLaws[7].question);
-    console.log(crazyLaws[7].rightAnswer);
-    console.log(crazyLaws[7].options);
-
-    console.log(crazyLaws[8].question);
-    console.log(crazyLaws[8].rightAnswer);
-    console.log(crazyLaws[8].options);
-
-    console.log(crazyLaws[9].question);
-    console.log(crazyLaws[9].rightAnswer);
-    console.log(crazyLaws[9].options);
-
-    console.log(crazyLaws[10].question);
-    console.log(crazyLaws[10].rightAnswer);
-    console.log(crazyLaws[10].options);
-
-    console.log(crazyLaws[11].question);
-    console.log(crazyLaws[11].rightAnswer);
-    console.log(crazyLaws[11].options);
-
-/*
+      
+});
+// var radio = $('<input/>');
+// radio.attr({ type: 'radio', name:'rad'}).addClass("op");
+// $("#answers").append(radio + answers + " ");
+// console.log(options + '')
+/*    
 ========================================
 MEDIA
 ========================================
 */
 
-$(document).ready(function(){
+// $(document).ready(function(){
+
 
 /*
 ========================================
