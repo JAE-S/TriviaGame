@@ -15,11 +15,12 @@ $(document).ready(function(){
 GLOBAL VARIABLES 
 ========================================
 */
-var correct = 0;   // Questions Answered Correctly
-var wrong = 0;    // Questions Answered Wrong
-var na = 0;      // Questions Not Answered 
-
-var time = 0;   // Countdown clock
+var correct = 0;              // Questions Answered Correctly
+var wrong = 0;               // Questions Answered Wrong
+var na = 0;                 // Questions Not Answered 
+var intervalId;            // SetInterval that runs the stopwatch
+var clockRunning = false; // Prevents the clock from being sped up unnecessarily
+var time = 60;            // Sets the clock
 
 
     var crazyLaws = [
@@ -99,11 +100,14 @@ var time = 0;   // Countdown clock
 
 
 
+
+
 /*    
 ========================================
 MEDIA
 ========================================
 */
+// var audio = new Audio();
 
 // $(document).ready(function(){
 
@@ -114,11 +118,30 @@ START GAME - FROM INTRO PAGE
 ========================================
 */
 
-    $("#playButton").on('click', function() { 
-        $(".activeGame").show();
-        $(".instructions").hide();
-        generateTrivia()
+    $("#playButton").on('click', function() {   // Starts first round of game 
+        $(".activeGame").show();          // Shows activeGame 
+        $(".instructions").hide();        // Hides instructions
+        generateTrivia();                 // Generates questions & answers
+        start();                          // starts timer 
         
+    });    
+
+/*
+========================================
+Submits Answers / Results
+========================================
+*/
+
+    $("#submit").on('click', function() {     // Sumbits answers 
+        $(".activeGame").hide();             // Hides activeGame 
+        $(".results").show();               // Shows results
+        // generateAnswers()               // Generates answers
+        stop();                           // Stops timer 
+    
+        // #correctAnswers
+        // #unanswered
+        // #incorrectAnswers
+        // #rightAnswers
     });    
 
 /*
@@ -126,15 +149,20 @@ START GAME - FROM INTRO PAGE
 RESET GAME
 ========================================
 */
- 
+    $('#tryAgain').on('click', function() { 
+        $(".activeGame").show();                 // Shows activeGame 
+        $(".results").hide();                   // Hides results
+        generateTrivia()                       // Generates questions & answers
+        reset();                              // Resets timer 
+    });    
 
 /*
 ========================================
-Count Down Timer
+Checks Answers
 ========================================
 */
 
-// id="countDown"
+
 
 
 /*
@@ -142,7 +170,7 @@ Count Down Timer
 Adds Questions and answers
 ========================================
 */
-  function generateTrivia(){  
+    function generateTrivia(){  
         crazyLaws.forEach(function(crazyLaws){
  
             var row = $('<div>');
@@ -150,13 +178,64 @@ Adds Questions and answers
             row.append($('<div class="row1"></div>').append(questions + " "));
             var choices = crazyLaws.options.splice(', '); 
             console.log(choices.length)
+            
             for (var i = 0; i < choices.length; i++ ) {
                 row.append('<label class="row2"><input type="radio" name="crazyLaws.options" value="' + choices[i] + '" /> ' + choices[i] + '</label>');
             }
+            
             $("table").append(row);
-
         }); 
     };
 
+/*
+========================================
+Count Down Timer Functions 
+========================================
+*/
 
+    function reset() {
+        time = 60;                                // Resets timer
+        $("#countDown").text("01:00");            // Sets countDown display to "00:00"
+    }
+
+    function start() {
+        $("#countDown").text("01:00");                // Sets countDown display to "00:00"
+        if (!clockRunning) {
+            intervalId = setInterval(decrement, 1000); // setInterval to initiate the count
+            clockRunning = true;                       // Sets the countDown to running
+        }
+    }
+    function stop() {
+        clearInterval(intervalId);    // ClearInterval to stop the count
+        clockRunning = false;         // Stops the countDown
+        $(".activeGame").hide();             // Hides activeGame 
+        $(".results").show();               // Shows results
+    }
+    function decrement() {
+        time--;                           // Decrements time by 1
+  
+        var converted = timeConverter(time); // Gets the current time 
+        console.log(converted);             // --> passes it through the timeConverter function                                     // --> Saves the result in a variable
+        $("#countDown").text(converted);  // Updates the converted countDown display
+        if (time === -1) {
+            stop();                    // If time = 0 stop the clock
+            alert("Time Up!");        //  Alert the user that time is up.
+        }
+    }
+    function timeConverter(t) {          // Display time converter
+        var minutes = Math.floor(t / 60);
+        var seconds = t - (minutes * 60);
+  
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        if (minutes === 0) {
+            minutes = "00";
+        }
+        else if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        return minutes + ":" + seconds;
+    }
+  
 }); 
