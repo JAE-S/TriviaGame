@@ -1,9 +1,13 @@
 /*
 ========================================
-Trivia Game - Questions & Answers 
+Trivia Game - Screens
 ========================================
 */
+$(document).ready(function(){
 
+    $(".instructions").show();
+    $(".activeGame").hide();
+    $(".results").hide();
 
 
 /*
@@ -18,7 +22,6 @@ var na = 0;      // Questions Not Answered
 var time = 0;   // Countdown clock
 
 
-// $(function () {
     var crazyLaws = [
             { 
             // Question 1
@@ -94,54 +97,7 @@ var time = 0;   // Countdown clock
        
     ];
 
-crazyLaws.forEach(function(crazyLaws){
- 
-    var row = $('<div>');
-    var questions = crazyLaws.question; 
-    row.append($('<div class="row1"></div>').append(questions + " "));
-    var choices = crazyLaws.options.splice(', '); 
-        console.log(choices.length)
-            for (var i = 0; i < choices.length; i++ ) {
-            row.append('<label class="row2"><input type="radio" name="crazyLaws.options" value="' + choices[i] + '" /> ' + choices[i] + '</label>');
-            }
-            $("table").append(row);
 
-        });
-        // console.log(choices);
-    // var tableBody = $('<tbody></tbody');
-    // for (var i = 0; i < crazyLaws.length; i++){
-        // var row = $('<tr></tr>');
-        // row.append($('<td></td>')
-      
-
-  
-//    $('#option_1').append(questions + " ");
-//    console.log(questions);
-
-//    var choices = crazyLaws.options.splice(', '); 
-//    $('#option_1').append(choices + " ");
-//    console.log(choices);
-// });
-    // var tableBody = $<('<tbody></tbody>');
-    // for (var i = 0; i < results.length; i++) {
-    //     var crazyLaws = results[i];
-    //     console.log(results);
-    // }
-
-
-    // $.each(crazyLaws, function () { // Loops through crazy laws objects 
-    //     // console.log("Question: " + this.question);
-    //     // for(var i = 0; i < crazyLaws.length; i++)
-    // //   console.log(this.options.length);
-   
-    // // $("#option_2").append(this.question + " " + this.options + " "); 
-    // var choices = this.options.splice(', ')
-    // console.log(choices);
- 
-    // var markup = "<tr class='Laws'><th>" + this.question + "</th></tr>" + "<tr class='choicesRow'><td><input type='radio' name='radio-choice-1' id='radio-choice-1' value='choice-1'> " + "<label for='radio-choice-1'>" + choices[0] + "</label>" + "<input type='radio' name='record'>" + choices[1] + "<input type='radio' name='record'>" + choices[2] + "<input type='radio' name='record'>" + choices[3] + "</td></tr>";
-    // $("table").append(markup);
-
-// });
 
 /*    
 ========================================
@@ -151,12 +107,19 @@ MEDIA
 
 // $(document).ready(function(){
 
-
+    
 /*
 ========================================
 START GAME - FROM INTRO PAGE 
 ========================================
 */
+
+    $("#playButton").on('click', function() { 
+        $(".activeGame").show();
+        $(".instructions").hide();
+        generateTrivia()
+        
+    });    
 
 /*
 ========================================
@@ -167,11 +130,33 @@ RESET GAME
 
 /*
 ========================================
-function 
+Count Down Timer
 ========================================
 */
 
+// id="countDown"
 
 
+/*
+========================================
+Adds Questions and answers
+========================================
+*/
+  function generateTrivia(){  
+        crazyLaws.forEach(function(crazyLaws){
+ 
+            var row = $('<div>');
+            var questions = crazyLaws.question; 
+            row.append($('<div class="row1"></div>').append(questions + " "));
+            var choices = crazyLaws.options.splice(', '); 
+            console.log(choices.length)
+            for (var i = 0; i < choices.length; i++ ) {
+                row.append('<label class="row2"><input type="radio" name="crazyLaws.options" value="' + choices[i] + '" /> ' + choices[i] + '</label>');
+            }
+            $("table").append(row);
 
-// }); 
+        }); 
+    };
+
+
+}); 
