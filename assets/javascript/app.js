@@ -180,7 +180,7 @@ Adds Questions and answers
             console.log(choices.length)
             
             for (var i = 0; i < choices.length; i++ ) {
-                row.append('<label class="row2"><input type="radio" name="crazyLaws.options" value="' + choices[i] + '" /> ' + choices[i] + '</label>');
+                row.append('<label class="row2"><input type="radio" name="' + crazyLaws.question.length + '"  value="' + choices[i] + '" /> ' + choices[i] + '</label>');
             }
             
             $("table").append(row);
