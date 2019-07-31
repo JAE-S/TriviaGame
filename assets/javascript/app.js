@@ -18,7 +18,7 @@ var na = 0;      // Questions Not Answered
 var time = 0;   // Countdown clock
 
 
-$(function () {
+// $(function () {
     var crazyLaws = [
             { 
             // Question 1
@@ -94,48 +94,55 @@ $(function () {
        
     ];
 
-    $.each(crazyLaws, function () { // Loops through crazy laws objects 
-        console.log("Question: " + this.question);
-        // for(var i = 0; i < crazyLaws.length; i++)
-    //   console.log(this.options.length);
-   
-    // $("#option_2").append(this.question + " " + this.options + " "); 
-    var choices = this.options.splice(', ')
-    console.log(choices);
-    // this.question  = $("<div>")
-    // this.options = $("<div>")
-    var markup = "<tr class='Laws'><td>" + this.question + "</td></tr>" + "<tr><td><input type='radio' name='record'></td><td>" + choices[0] + "<tr><td><input type='checkbox' name='record'></td><td>" + choices[1] + "<tr><td><input type='checkbox' name='record'></td><td>" + choices[2] + "<tr><td><input type='checkbox' name='record'></td><td>" + choices[3] + "</tr>";
-    $("#option_1").append(markup);
+crazyLaws.forEach(function(crazyLaws){
+ 
+    var row = $('<div>');
+    var questions = crazyLaws.question; 
+    row.append($('<div class="row1"></div>').append(questions + " "));
+    var choices = crazyLaws.options.splice(', '); 
+        console.log(choices.length)
+            for (var i = 0; i < choices.length; i++ ) {
+            row.append('<label class="row2"><input type="radio" name="crazyLaws.options" value="' + choices[i] + '" /> ' + choices[i] + '</label>');
+            }
+            $("table").append(row);
 
-        // $("#option_1").append(this.options[0] + " "); 
-        // $("#option_2").append(this.options[1] + " ");
-        // $("#option_3").append(this.options[2] + " ");
-        // $("#option_4").append(this.options[3] + " ");
+        });
+        // console.log(choices);
+    // var tableBody = $('<tbody></tbody');
+    // for (var i = 0; i < crazyLaws.length; i++){
+        // var row = $('<tr></tr>');
+        // row.append($('<td></td>')
       
+
+  
+//    $('#option_1').append(questions + " ");
+//    console.log(questions);
+
+//    var choices = crazyLaws.options.splice(', '); 
+//    $('#option_1').append(choices + " ");
+//    console.log(choices);
+// });
+    // var tableBody = $<('<tbody></tbody>');
+    // for (var i = 0; i < results.length; i++) {
+    //     var crazyLaws = results[i];
+    //     console.log(results);
+    // }
+
+
+    // $.each(crazyLaws, function () { // Loops through crazy laws objects 
+    //     // console.log("Question: " + this.question);
+    //     // for(var i = 0; i < crazyLaws.length; i++)
+    // //   console.log(this.options.length);
    
-            // $("#questions-view").append(answers + this.options + );
-            // });
-        // var q = $('<div class="laws">');
-        //     q.text(this.question);
-        // $('#questions-view').append(q); 
+    // // $("#option_2").append(this.question + " " + this.options + " "); 
+    // var choices = this.options.splice(', ')
+    // console.log(choices);
+ 
+    // var markup = "<tr class='Laws'><th>" + this.question + "</th></tr>" + "<tr class='choicesRow'><td><input type='radio' name='radio-choice-1' id='radio-choice-1' value='choice-1'> " + "<label for='radio-choice-1'>" + choices[0] + "</label>" + "<input type='radio' name='record'>" + choices[1] + "<input type='radio' name='record'>" + choices[2] + "<input type='radio' name='record'>" + choices[3] + "</td></tr>";
+    // $("table").append(markup);
 
-        
-            // var answers = $('<input/>');
-            // answers.attr({ type: 'radio', name:'rad'}).addClass("rad");
-            // $("#questions-view").append(answers + this.options + );
-            // });
-        // console.log(law); 
-        // console.log(this.question.length);
-        // console.log("Right Answer: " + this.rightAnswer);
-        // console.log("Options: " + this.options.length);
-    
-      
-});
+// });
 
-// var radio = $('<input/>');
-// radio.attr({ type: 'radio', name:'rad'}).addClass("op");
-// $("#answers").append(radio + answers + " ");
-// console.log(options + '')
 /*    
 ========================================
 MEDIA
@@ -167,4 +174,4 @@ function
 
 
 
-}); 
+// }); 

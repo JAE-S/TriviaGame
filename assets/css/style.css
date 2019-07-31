@@ -76,8 +76,10 @@ body {
     background: white;
     padding: 20px 40px 10px 40px;
     margin: 0 auto;
-    overflow: auto;
+
   }
+  
+ 
 
 /*
   ========================================
@@ -147,5 +149,38 @@ h3 {
 */
 
 .Laws {
-  font-size: 40px; 
+  font-size: 24px; 
+  line-height: 1.5;
 }
+
+.choicesRow {
+  background: black; 
+  color: white; 
+  text-align: center; 
+  
+}
+
+table {
+  border-spacing: 80px;
+  max-width: 960px;
+  z-index: 1;
+  background: white;
+  /* padding: 20px 40px 10px 40px; */
+  margin: 0 auto;
+  text-align: center; 
+}
+
+.row1 { 
+  margin: 0 auto;
+  padding: 10px 5px;
+}
+
+.row2 { 
+  margin: 0 auto;
+  padding: 10px 5px;
+}
+
+/* th {
+  width: 100%;
+} */
+
