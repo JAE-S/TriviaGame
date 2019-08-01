@@ -30,6 +30,7 @@ header {
   border: 1px solid transparent;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: static;
 }
 
 nav a {
@@ -43,10 +44,6 @@ nav a:hover {
   font-weight: Bold;
   text-decoration: none;
   border-bottom: 2px solid black;
-}
-
-.name {
-  line-height: 40px;
 }
 
 /*
@@ -63,11 +60,13 @@ body {
 }
 
 .background {
-    background: white;
-    z-index: 0;
-    flex-grow: 1;
-    width: 100%;
-    padding: 40px; 
+  background-image: url("../images/wacky_state_laws_background\ 2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  flex-grow: 1;
+  width: 100%;
+  padding: 40px; 
   }
 
   .container2 {
@@ -78,8 +77,28 @@ body {
     margin: 0 auto;
 
   }
-  
+  .instructions {
+    max-width: 960px;
+    max-height: 753px;
+    min-height: 1px;
+    background-image: url("../images/trivia_intro.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    padding: 20px 40px 10px 40px;
+    box-shadow: 0 4px 8px 0 rgba(60, 18, 245, 0.164);
+    margin: 0 auto;
+    position: relative: 
+  }
  
+  .containerIntro {      /* Small text box for instructions */
+    background: white; 
+    position: relative;
+    z-index: 2;
+    margin-top: 62%;
+    margin-left: 36%;
+    /* right: 150px;  */ */
+  }
 
 /*
   ========================================
@@ -95,6 +114,7 @@ footer {
   z-index: 1;
   padding-top: 30px;
   padding-bottom: 10px;
+  position: static; 
 }
 
 /*
@@ -131,16 +151,74 @@ p {
   color: #777777;
 }
 
+
+
+
 /*
   ========================================
   Typography - Trivia Project
   ========================================
 */
 
+.containerIntro h1 {
+  font-family: 'Bowlby One', cursive;
+  text-align: center; 
+  letter-spacing: 4px; 
+}
+
+.containerIntro p {
+  margin: 15px 20px 15px 20px; 
+  font-family: arial; 
+  text-align: justify; 
+}
+
+#playButton, #submit, #tryAgain {
+  font-family: 'Bowlby One', cursive;
+  letter-spacing: 4px; 
+  padding: 5px; 
+  color: blue; 
+  background: transparent; 
+  border: none; 
+  margin-bottom: 10px; 
+}
+#playButton:hover {
+  font-family: 'Bowlby One', cursive;
+  color:white; 
+  background-color: blue; 
+}
+#submit:hover {
+  font-family: 'Bowlby One', cursive;
+  color:white; 
+  background-color: blue; 
+}
+#tryAgain:hover {
+  font-family: 'Bowlby One', cursive;
+  color:white; 
+  background-color: blue; 
+}
+
 h3 {
   font-size: 22px;
   color: black;
 }
+
+
+#countDown, .pageHeading {
+  font-family: 'Bowlby One', cursive;
+  text-align: center; 
+  line-height: 32px; 
+  letter-spacing: 4px; 
+  display: table; 
+  margin: 0 auto; 
+  margin-bottom: 20px; 
+}
+
+#state {
+  font-size: 22px; 
+  color: red; 
+  border-bottom: 1px solid blue; 
+}
+
 
  /*
   ========================================
@@ -173,11 +251,22 @@ table {
 .row1 { 
   margin: 0 auto;
   padding: 10px 5px;
+  font-family: arial; 
+  font-size: 22px;
+  background: white; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  box-shadow: 0 4px 8px 0 rgba(60, 18, 245, 0.164);
 }
+.row1:hover { 
+  color: blue;
+} 
 
 .row2 { 
   margin: 0 auto;
   padding: 10px 5px;
+  font-family: arial; 
+  margin-bottom: 10px; 
 }
 
 /* th {

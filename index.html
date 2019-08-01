@@ -12,6 +12,7 @@
   
             <!-- External Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Cinzel|Raleway:100&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Bowlby+One&display=swap" rel="stylesheet">
             
             <!-- Css Style Sheets -->
             <link rel="stylesheet" href="assets/css/reset.css">
@@ -39,22 +40,30 @@
 
             <section class="instructions"><!-- Start of Intro Section -->
 
-                <div class="container2"> 
+                <div class="containerIntro text-center"> 
                     <!-- Crazy State Laws -->
+                    <h1>CRAZY STATE LAWS</h1> 
+                    <p>How well do you know the law? Press the button below to test your knowledge on some of the wackiest laws in the US. You will have 60 seconds to submit your answers.</p> 
+                    <p>And yes... these laws really exist!</p>
                     <!-- How To Play The Game -->
-                    <button id="playButton">Play!</button>
+
+                    <div class="row">
+                            <button class="text-center btn-block" id="playButton">PLAY!</button>
+                        </div>
                 </div>
 
             </section><!-- End of Intro Section -->
 
-            <section class="activeGame"><!-- Start of Active Game-->
+            <section class="container2 activeGame"><!-- Start of Active Game-->
                 
-                <div class="pageHeading"> 
+                <div > 
                     <!-- Page Heading -->
-                </div>
-                
-                <div id="countDown">
-                Time
+                    <div class="row text-center">
+                        <h1 id="countDown">Timer</h1>
+                    </div>
+                    <div class="row text-center">
+                        <h1 class="pageHeading" id="state">In what state is it illegal to… </h1>
+                    </div>
                 </div>
 
                 <!-- Questions Container: 12 questions -->
@@ -62,14 +71,12 @@
                     
                     <table id="option_1">
                         <tr>
-                           <th>In what state is it illegal to… </th>
+                           <th></th>
                         </tr>
                     </table>
-                   
-              
                     <!-- Submit answers -->
                     <div> 
-                        <button id="submit">Submit</button>
+                        <button class="text-center btn-block" id="submit">Submit</button>
                     </div>
 
                 </div> <!-- End of questions section -->
@@ -78,11 +85,12 @@
 
             <section class="results container2"><!-- Start of Restults -->
                 
-                <div class="pageHeading"> 
+                <div> 
                     <!-- Page Heading -->
+                    <h1 class="pageHeading">WELL DONE!</h1>
                 </div>
 
-                <div class="row">
+                <div class="row text-center">
                     <div id="correctAnswers">Correct Answers: </div>
                 </div>
                 <div class="row"> 
@@ -92,10 +100,10 @@
                     <div id="incorrectAnswers">Incorrect Answers: </div>
                 </div>
                 <div class="row">
-                        <div id="rightAnswers">Right Answers: </div>
+                    <div id="rightAnswers">Right Answers: </div>
                 </div>
 
-                <button id="tryAgain">Try Again! </button>
+                <button class="text-center btn-block" id="tryAgain">Try Again! </button>
             
             </section><!--End of Restults-->
 

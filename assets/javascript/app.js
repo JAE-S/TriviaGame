@@ -15,12 +15,12 @@ $(document).ready(function(){
 GLOBAL VARIABLES 
 ========================================
 */
-var correct = 0;              // Questions Answered Correctly
-var wrong = 0;               // Questions Answered Wrong
-var na = 0;                 // Questions Not Answered 
-var intervalId;            // SetInterval that runs the stopwatch
-var clockRunning = false; // Prevents the clock from being sped up unnecessarily
-var time = 60;            // Sets the clock
+    var correct = 0;               // Questions Answered Correctly
+    var wrong = 0;                // Questions Answered Wrong
+    var na = 0;                  // Questions Not Answered 
+    var intervalId;            // SetInterval that runs the stopwatch
+    var clockRunning = false; // Prevents the clock from being sped up unnecessarily
+    var time = 60;            // Sets the clock
 
 
     var crazyLaws = [
@@ -132,7 +132,31 @@ Submits Answers / Results
 ========================================
 */
 
-    $("#submit").on('click', function() {     // Sumbits answers 
+    $("#submit").on('click', function() { 
+        correct = 0;
+        wrong = 0; 
+        na = 0;  
+        $("input[id='record']:checked").each(function(i) {
+            console.log('I!!! ', i)
+            console.log('THIS VAL ', $(this).val())
+            console.log('right answer ', crazyLaws[i].rightAnswer)
+            if ($(this).val() === crazyLaws[i].rightAnswer){
+                console.log("correct");
+                correct++;
+                $('#correctAnswers').text(correct + ' ');
+            } else if ($(this).val() !== crazyLaws[i].rightAnswer){
+                console.log("wrong");
+                wrong++;
+                $('#incorrectAnswers').text(wrong + ' ');
+            } else {
+                console.log("na"); 
+                na =  (wrong + write) - 12; 
+                $('unanswered').text(na + ' ');
+            }
+        
+        });
+        
+        // Sumbits answers 
         $(".activeGame").hide();             // Hides activeGame 
         $(".results").show();               // Shows results
         // generateAnswers()               // Generates answers
@@ -152,9 +176,11 @@ RESET GAME
     $('#tryAgain').on('click', function() { 
         $(".activeGame").show();                 // Shows activeGame 
         $(".results").hide();                   // Hides results
-        generateTrivia()                       // Generates questions & answers
         reset();                              // Resets timer 
     });    
+
+
+
 
 /*
 ========================================
@@ -163,7 +189,21 @@ Checks Answers
 */
 
 
+    
+// (function (){ 
+//     var form, choicesRow;
+//     var form = $('table');
+//     var choicesRow = form.elements.crazyLaws.options.length ;
+//     var sumbit = $('#submit');
+//     var submitted = false; 
+     
+//     for (c < 0; c < choicesRow.length; i++){
+//         addEventListener(choicesRow[i], 'click', radioChanged);
+//         console.log(choicesRow);
+//     }
+    // on inout 
 
+// })
 
 /*
 ========================================
@@ -171,6 +211,8 @@ Adds Questions and answers
 ========================================
 */
     function generateTrivia(){  
+        corret = 0; 
+
         crazyLaws.forEach(function(crazyLaws){
  
             var row = $('<div>');
@@ -180,12 +222,16 @@ Adds Questions and answers
             console.log(choices.length)
             
             for (var i = 0; i < choices.length; i++ ) {
-                row.append('<label class="row2"><input type="radio" name="' + crazyLaws.question.length + '"  value="' + choices[i] + '" /> ' + choices[i] + '</label>');
+                row.append('<label class="row2"><input id="record"' 
+                +i+' type="radio" name="'  + crazyLaws.question.length + '"  value="' + choices[i] + '" /> ' + choices[i] + '</label>');
             }
             
             $("table").append(row);
         }); 
     };
+
+
+
 
 /*
 ========================================
