@@ -143,18 +143,18 @@ Submits Answers / Results
             if ($(this).val() === crazyLaws[i].rightAnswer){
                 console.log("correct");
                 correct++;
-                $('#correctAnswers').text(correct + ' ');
+                $('#correctAnswers').text("Correct Answers: " + correct + ' ');
             } else if ($(this).val() !== crazyLaws[i].rightAnswer){
                 console.log("wrong");
                 wrong++;
-                $('#incorrectAnswers').text(wrong + ' ');
-            } else {
-                console.log("na"); 
-                na =  (wrong + write) - 12; 
-                $('unanswered').text(na + ' ');
+                $('#incorrectAnswers').text("Incorrect Answers: " + wrong + ' ');
             }
-        
         });
+        if ((wrong + correct) !== 12){
+            na = (12 - (wrong + correct));
+            $('#unanswered').text("Unanswered: " + na + '');
+            }
+            console.log(na);
         
         // Sumbits answers 
         $(".activeGame").hide();             // Hides activeGame 
