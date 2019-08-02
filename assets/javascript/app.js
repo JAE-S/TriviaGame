@@ -32,13 +32,13 @@ GLOBAL VARIABLES
            
             }, {
             // Question 2
-            question: "...ride your horse above 10mph?",
+            question: "...ride your horse over 10mph?",
             rightAnswer: "Indiana",
             options: ["Indiana", "Pennsylvania", "Kentucky", "Illinois"],
 
             }, {
             // Question 3
-            question: "...blow your ‘Bean’ whistle?",
+            question: "...blow your whistle?",
             rightAnswer: "Connecticut",
             options: ["Connecticut", "Massachusetts", "Rhode Island", "Main"],
             
@@ -136,7 +136,7 @@ Submits Answers / Results
         correct = 0;
         wrong = 0; 
         na = 0;  
-        $("input[id='record']:checked").each(function(i) {
+        $("input[class='record']:checked").each(function(i) {
             console.log('I!!! ', i)
             console.log('THIS VAL ', $(this).val())
             console.log('right answer ', crazyLaws[i].rightAnswer)
@@ -150,7 +150,7 @@ Submits Answers / Results
                 $('#incorrectAnswers').text("Incorrect Answers: " + wrong + ' ');
             }
         });
-        if ((wrong + correct) !== 12){
+        if ((wrong + correct) !== crazyLaws.length){
             na = (12 - (wrong + correct));
             $('#unanswered').text("Unanswered: " + na + '');
             }
@@ -174,13 +174,15 @@ RESET GAME
 ========================================
 */
     $('#tryAgain').on('click', function() { 
+
+        correct = 0;
+        wrong = 0; 
+        na = 0;  
+        $("input[class='record']:checked").checked = false; 
         $(".activeGame").show();                 // Shows activeGame 
         $(".results").hide();                   // Hides results
         reset();                              // Resets timer 
     });    
-
-
-
 
 /*
 ========================================
@@ -189,29 +191,13 @@ Checks Answers
 */
 
 
-    
-// (function (){ 
-//     var form, choicesRow;
-//     var form = $('table');
-//     var choicesRow = form.elements.crazyLaws.options.length ;
-//     var sumbit = $('#submit');
-//     var submitted = false; 
-     
-//     for (c < 0; c < choicesRow.length; i++){
-//         addEventListener(choicesRow[i], 'click', radioChanged);
-//         console.log(choicesRow);
-//     }
-    // on inout 
-
-// })
-
 /*
 ========================================
 Adds Questions and answers
 ========================================
 */
     function generateTrivia(){  
-        corret = 0; 
+        event.preventDefault();
 
         crazyLaws.forEach(function(crazyLaws){
  
@@ -222,16 +208,13 @@ Adds Questions and answers
             console.log(choices.length)
             
             for (var i = 0; i < choices.length; i++ ) {
-                row.append('<label class="row2"><input id="record"' 
-                +i+' type="radio" name="'  + crazyLaws.question.length + '"  value="' + choices[i] + '" /> ' + choices[i] + '</label>');
+                row.append('<label class="row2"><input class="record"' 
+                +i+' type="radio" name="'  + crazyLaws.question.length +'"  value="' + choices[i] + '" /> ' + choices[i] + '</label>');
             }
             
             $("table").append(row);
         }); 
     };
-
-
-
 
 /*
 ========================================
