@@ -171,11 +171,13 @@ RESET GAME
 ========================================
 */
     $('#tryAgain').on('click', function() { 
-
+        event.preventDefault();
         correct = 0;
         wrong = 0; 
         na = 0;  
-        $("input[class='record']:checked").checked = false; 
+        $("input[class='record']:checked").each(function() {
+            $(this).prop('checked', false);
+        });
         $(".activeGame").show();                 // Shows activeGame 
         $(".results").hide();                   // Hides results
         reset();                               // Resets timer 
