@@ -21,6 +21,7 @@ GLOBAL VARIABLES
     var intervalId;            // SetInterval that runs the stopwatch
     var clockRunning = false; // Prevents the clock from being sped up unnecessarily
     var time = 60;            // Sets the clock
+    var laws = [];
 
 
     var crazyLaws = [
@@ -53,6 +54,7 @@ GLOBAL VARIABLES
             question: "…send your bestfriend a surprise pizza?",
             rightAnswer: "Louisiana",
             options: ["Maryland", "Montana", "Louisiana", "Ohio"],
+
             }, {
             // Question 6
             question: "...steal an  alligator?",
@@ -98,10 +100,6 @@ GLOBAL VARIABLES
        
     ];
 
-
-
-
-
 /*    
 ========================================
 MEDIA
@@ -128,8 +126,12 @@ START GAME - FROM INTRO PAGE
 Submits Answers / Results
 ========================================
 */
+var resultsAnswers = [];
 
     $("#submit").on('click', function() { 
+        submit
+    });    
+        function submit() {
         correct = 0;
         wrong = 0; 
         na = 0;  
@@ -140,30 +142,32 @@ Submits Answers / Results
             if ($(this).val() === crazyLaws[i].rightAnswer){
                 console.log("correct");
                 correct++;
-                $('#correctAnswers').text("Correct Answers: " + correct + ' ');
+                $('#correctAnswers').text(correct + ' ');
             } else if ($(this).val() !== crazyLaws[i].rightAnswer){
                 console.log("wrong");
                 wrong++;
-                $('#incorrectAnswers').text("Incorrect Answers: " + wrong + ' ');
+                resultsAnswers.push($(this).val());
+                console.log(resultsAnswers);
+                $('#incorrectAnswers').text(wrong + ' ');
             }
         });
+  
         if ((wrong + correct) !== crazyLaws.length){
+            console.log('lawssssss', crazyLaws.length);
             na = (12 - (wrong + correct));
-            $('#unanswered').text("Unanswered: " + na + '');
+            $('#unanswered').text(na + '');
             }
+        else {
+            na = 0;
+        }
             console.log(na);
-        
-        // Sumbits answers 
         $(".activeGame").hide();             // Hides activeGame 
         $(".results").show();               // Shows results
         // generateAnswers()               // Generates answers
         stop();                           // Stops timer 
-    
-        // #correctAnswers
-        // #unanswered
-        // #incorrectAnswers
-        // #rightAnswers
-    });    
+        answers();                       // Toggles between correct q & a's
+    }
+ 
 
 /*
 ========================================
@@ -185,13 +189,6 @@ RESET GAME
 
 /*
 ========================================
-Checks Answers
-========================================
-*/
-
-
-/*
-========================================
 Adds Questions and answers
 ========================================
 */
@@ -199,9 +196,15 @@ Adds Questions and answers
         event.preventDefault();
 
         crazyLaws.forEach(function(crazyLaws){
- 
             var row = $('<div>');
+            var a = $('<div>');
             var questions = crazyLaws.question; 
+            laws = crazyLaws.stateLaw;
+            console.log(laws);
+            a.append($('<div class="row1 questions" id="a-"' 
+            +i+'></div>').append(questions + " "));
+            a.append($('<div class="row1 stateLaw" id="q-"' 
+                +i+'></div>').append(laws + " "));
             row.append($('<div class="row1"></div>').append(questions + " "));
             var choices = crazyLaws.options.splice(', '); 
             console.log(choices.length)
@@ -209,10 +212,10 @@ Adds Questions and answers
             for (var i = 0; i < choices.length; i++ ) {
                 row.append('<label class="row2"><input class="record"' 
                 +i+' type="radio" name="'  + crazyLaws.question.length +'"  value="' + choices[i] + '" /> ' + choices[i] + '</label>');
-            }
-            
-            $("table").append(row);
+            }   
+            $("table").append(row);  
         }); 
+       
     };
 
 /*
@@ -242,6 +245,7 @@ Count Down Timer Functions
         clockRunning = false;         // Stops the countDown
         $(".activeGame").hide();             // Hides activeGame 
         $(".results").show();               // Shows results
+       
     }
     function decrement() {
         time--;                           // Decrements time by 1
@@ -250,8 +254,9 @@ Count Down Timer Functions
         console.log(converted);             // --> passes it through the timeConverter function                                     // --> Saves the result in a variable
         $("#countDown").text(converted);  // Updates the converted countDown display
         if (time === -1) {
-            stop();                    // If time = 0 stop the clock
-            alert("Time Up!");        //  Alert the user that time is up.
+            stop();   
+            submit();                 // If time = 0 stop the clock
+            // alert("Time Up!");        //  Alert the user that time is up.
         }
     }
     function timeConverter(t) {          // Display time converter
@@ -269,5 +274,73 @@ Count Down Timer Functions
         }
         return minutes + ":" + seconds;
     }
+
+
+/*
+========================================
+Toggle Answers in Results 
+========================================
+*/
   
+    function answers(){
+        $("#answer_1").hide();  
+        $("#answer_2").hide(); 
+        $('#answer_3').hide();
+        $('#answer_4').hide();
+        $('#answer_5').hide();
+        $('#answer_6').hide();
+        $('#answer_7').hide();
+        $('#answer_8').hide();
+        $('#answer_9').hide();
+        $('#answer_10').hide();
+        $('#answer_11').hide();
+        $('#answer_12').hide();
+        $('#questions').hide();
+
+        $("#rightAnswers").on('click', function(){
+            $("#questions").toggle();
+        });
+    
+        $("#question_1").on('click', function(){
+            $("#answer_1").toggle();
+        });
+        $("#question_2").on('click', function(){
+            $('#answer_2').toggle();
+        });
+        $("#question_3").on('click', function(){
+            $('#answer_3').toggle();
+        });
+        $("#question_4").on('click', function(){
+            $('#answer_4').toggle();
+        });
+        $("#question_5").on('click', function(){
+            $('#answer_5').toggle();
+        });
+        $("#question_6").on('click', function(){
+            $('#answer_6').toggle();
+        });
+        $("#question_7").on('click', function(){
+            $('#answer_7').toggle();
+        });
+        $("#question_8").on('click', function(){
+            $('#answer_8').toggle();
+        });
+        $("#question_9").on('click', function(){
+            $('#answer_9').toggle();
+        });
+        $("#question_10").on('click', function(){
+            $('#answer_10').toggle();
+        });
+        $("#question_11").on('click', function(){
+            $('#answer_11').toggle();
+        });
+        $("#question_12").on('click', function(){
+            $('#answer_12').toggle();
+        });
+    }
+
+
+
+
+
 }); 

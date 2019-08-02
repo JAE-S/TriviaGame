@@ -87,17 +87,55 @@
                 
                 <div> 
                     <!-- Page Heading -->
-                    <h1 class="pageHeading">WELL DONE!</h1>
+                    <h1 class="pageHeading">TIME IS UP!</h1>
                 </div>
+                <div class="answers d-flex row flex-column flex-md-row  align-items-center text-center">
+                   
+                    <div class="row1 col-lg-3"> 
+                       <span><h1>Unanswered </h1></span> 
+                    </div>
+                    <div class="row1 col-lg-3 align-items-center text-cente">  
+                        <span><h1>Correct </h1></span>
+                        </div>
+                    <div class="row1 col-lg-3">
+                        <span><h1>Incorrect </h1></span>
+                    </div>
+                </div>
+                <div class="answers d-flex row flex-column flex-md-row  align-items-center text-center">
+                   
+                        <div class="row1 col-lg-3 cr_1"> 
+                            <h1 id="unanswered">0</h1>
+                        </div>
+                        <div class="row1 col-lg-3 align-items-center text-center cr_2">  
+                            <h1 id="correctAnswers">0 </h1>
+                            </div>
+                        <div class="row1 col-lg-3 cr_3">
+                            <h1 id="incorrectAnswers">0</h1>
+                        </div>
+                    </div>
 
                 <div class="row text-center">
-                    <span class="row1" id="correctAnswers">Correct Answers: </span>
+                    <span class="row1" id="rightAnswers">Right Answers: </span>
                 </div>
-                <div class="row text-center"> 
-                    <span class="row1" id="unanswered">Unanswered: </span>
-                </div>
-                <div class="row text-center">
-                    <span class="row1" id="incorrectAnswers">Incorrect Answers: </span>
+                <div id="questions">
+                    <div class="row text-center">
+                        <span class="row1" id="question_1">...let your donkey sleep in a bathtub?</span>
+                            <div id="answer_1">
+                                <p>Correct Answer: Arizona</p>
+                                <p>This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water.</p>
+                            </div>
+                        <span class="row1" id="question_2">...ride your horse over 10mph?</span>
+                        <div id="answer_2">
+                                <p>Correct Answer: Indiana</p>
+                                <p>This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water.</p>
+                            </div>                        
+                        <span class="row1" id="question_3">...ride your horse over 10mph?</span>
+                            <div id="answer_3">
+                                <p>Correct Answer: Indiana</p>
+                                <p>This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water.</p>
+                            </div>
+                    
+                    </div>
                 </div>
 
                 <button class="text-center btn-block" id="tryAgain">Try Again! </button>
