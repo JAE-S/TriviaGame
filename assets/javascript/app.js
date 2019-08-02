@@ -108,9 +108,6 @@ MEDIA
 ========================================
 */
 // var audio = new Audio();
-
-// $(document).ready(function(){
-
     
 /*
 ========================================
@@ -181,7 +178,7 @@ RESET GAME
         $("input[class='record']:checked").checked = false; 
         $(".activeGame").show();                 // Shows activeGame 
         $(".results").hide();                   // Hides results
-        reset();                              // Resets timer 
+        reset();                               // Resets timer 
     });    
 
 /*
@@ -225,6 +222,10 @@ Count Down Timer Functions
     function reset() {
         time = 60;                                // Resets timer
         $("#countDown").text("01:00");            // Sets countDown display to "00:00"
+        if (!clockRunning) {
+            intervalId = setInterval(decrement, 1000); // setInterval to initiate the count
+            clockRunning = true;                       // Sets the countDown to running
+        }
     }
 
     function start() {
