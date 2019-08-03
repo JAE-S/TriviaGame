@@ -129,7 +129,7 @@ Submits Answers / Results
 var resultsAnswers = [];
 
     $("#submit").on('click', function() { 
-        submit
+        submit();
     });    
         function submit() {
         correct = 0;
@@ -185,6 +185,7 @@ RESET GAME
         $(".activeGame").show();                 // Shows activeGame 
         $(".results").hide();                   // Hides results
         reset();                               // Resets timer 
+        answers();                       // Toggles between correct q & a's
     });    
 
 /*

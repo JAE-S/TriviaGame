@@ -203,23 +203,66 @@ h3 {
   color: black;
 }
 
+#tryAgain {
+  font-size: 30px;
+  padding: 20px;
+  color: white
+}
 
-#countDown, .pageHeading {
-  font-family: 'Bowlby One', cursive;
+#countDown {
+  font-size: 50px;
+  padding-top: 40px;
+  color: red;
+}
+
+#countDown, .pageHeading, #tryAgain {
+  font-family: 'Luckiest Guy', cursive;
+   text-shadow:
+       3px 3px 0 rgb(9, 7, 150),
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
   text-align: center; 
-  line-height: 32px; 
-  letter-spacing: 4px; 
+  line-height: 40px; 
+  letter-spacing: 6px; 
   display: table; 
   margin: 0 auto; 
-  margin-bottom: 20px; 
+}
+.pageHeading {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  font-size: 38px;
+  color: white;
+}
+#rightAnswers {
+  max-width: 880px;
+  font-size: 30px;
+  color: green;
+  padding-bottom: 0;
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 6px; 
+  text-shadow:
+  3px 3px 0 rgba(143, 211, 8, 0.255);
+  box-shadow: 0 4px 8px 0 rgba(37, 201, 4, 0.164);
+}
+#rightAnswers:hover {
+  background: green;
+  color: white;
 }
 
-#state {
-  font-size: 22px; 
-  color: red; 
-  
-}
+.answers p {
 
+  font-family: Arial;
+  font-size: 20px; 
+  text-align: left;   
+  display: table; 
+  margin: 0 auto; 
+  color: grey; 
+  padding-bottom: 20px; 
+  padding-left: 10%;
+  padding-right: 10%; 
+}
 
  /*
   ========================================
@@ -227,39 +270,32 @@ h3 {
   ========================================
 */
 
-.Laws {
+/* .Laws {
   font-size: 24px; 
   line-height: 1.5;
-}
-
-.choicesRow {
-  background: black; 
-  color: white; 
-  text-align: center; 
-  
-}
+} */
 
 table {
   border-spacing: 80px;
   max-width: 960px;
   z-index: 1;
   background: white;
-  /* padding: 20px 40px 10px 40px; */
   margin: 0 auto;
   text-align: center; 
 }
 
 .row1 { 
   margin: 0 auto;
-  width: 100%; 
-  padding: 10px 5px;
-  font-family: arial; 
-  font-size: 22px;
-  background: white; 
+  max-width: 880px;
+  width: 100%;
   padding: 10px; 
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
+  font-family: arial; 
+  font-size: 24px;
+  background: white; 
   box-shadow: 0 4px 8px 0 rgba(22, 6, 247, 0.164);
 }
+
 .row1:hover { 
   color: blue;
 } 
@@ -280,15 +316,54 @@ table {
 }
 .cr_1, .cr_2, .cr_3{
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   max-width: 100px;
   height: 100px; 
   border-radius: 50%;
-  color: blue;
-  box-shadow:  0 4px 8px 0 rgba(225, 6, 3, 0.164);
-  display: inline-block;
-  padding-top: 4%;
+  display: table;
+  padding-top: 4.5%;
   vertical-align: middle;
+}
+
+.row3 {
+  margin: 0 auto;
+  width: 100%; 
+  padding: 10px 5px;
+  background: white; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+}
+
+.cr_1 {
+  box-shadow: 0 4px 8px 0 rgba(17, 17, 17, 0.164); 
+}
+
+.cr_2 {
+  box-shadow: 0 4px 8px 0 rgba(23, 116, 15, 0.255); 
+}
+.cr_3 {
+  box-shadow: 0 4px 8px 0 rgba(189, 3, 3, 0.255);
+}
+.incorrectMain, .correctMain, .skippedtMain {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 24px; 
+  letter-spacing: 4px; 
+}
+
+.skippedtMain {
+  color:black;
+  background: white;
+}
+
+
+.correctMain { 
+  background: white; 
+  color:green; 
+}
+
+.incorrectMain {
+  background: white; 
+  color: red; 
 }
 
 

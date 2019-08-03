@@ -12,7 +12,7 @@
   
             <!-- External Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Cinzel|Raleway:100&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css?family=Bowlby+One&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Bowlby+One|Luckiest+Guy&display=swap" rel="stylesheet">
             
             <!-- Css Style Sheets -->
             <link rel="stylesheet" href="assets/css/reset.css">
@@ -56,13 +56,13 @@
 
             <section class="container2 activeGame"><!-- Start of Active Game-->
                 
-                <div > 
+                <div> 
                     <!-- Page Heading -->
                     <div class="row text-center">
-                        <h1 id="countDown">Timer</h1>
+                        <span id="countDown">Timer</span>
                     </div>
                     <div class="row text-center">
-                        <h1 class="pageHeading" id="state">In what state is it illegal to… </h1>
+                        <h1 class="pageHeading">In what state is it illegal to . . . </h1>
                     </div>
                 </div>
 
@@ -87,30 +87,30 @@
                 
                 <div> 
                     <!-- Page Heading -->
-                    <h1 class="pageHeading">TIME IS UP!</h1>
+                    <span class="pageHeading">TIME IS UP!</span>
                 </div>
-                <div class="answers d-flex row flex-column flex-md-row  align-items-center text-center">
+                <div class="d-flex row flex-column flex-md-row  align-items-center text-center">
                    
-                    <div class="row1 col-lg-3"> 
-                       <span><h1>Unanswered </h1></span> 
+                    <div class="row3 col-lg-3"> 
+                       <span class="skippedtMain">SKIPPED</span> 
                     </div>
-                    <div class="row1 col-lg-3 align-items-center text-cente">  
-                        <span><h1>Correct </h1></span>
+                    <div class="row3 col-lg-3 align-items-center text-cente">  
+                        <span class="correctMain">CORRECT</span>
                         </div>
-                    <div class="row1 col-lg-3">
-                        <span><h1>Incorrect </h1></span>
+                    <div class="row3 col-lg-3">
+                        <span class="incorrectMain">INCORRECT</span>
                     </div>
                 </div>
-                <div class="answers d-flex row flex-column flex-md-row  align-items-center text-center">
+                <div class="d-flex row flex-column flex-md-row  align-items-center text-center">
                    
                         <div class="row1 col-lg-3 cr_1"> 
-                            <h1 id="unanswered">0</h1>
+                            <span class="skippedtMain" id="unanswered">0</span>
                         </div>
                         <div class="row1 col-lg-3 align-items-center text-center cr_2">  
-                            <h1 id="correctAnswers">0 </h1>
+                            <span class="correctMain" id="correctAnswers">0 </span>
                             </div>
                         <div class="row1 col-lg-3 cr_3">
-                            <h1 id="incorrectAnswers">0</h1>
+                            <span class="incorrectMain" id="incorrectAnswers">0</span>
                         </div>
                     </div>
 
@@ -119,21 +119,79 @@
                 </div>
                 <div id="questions">
                     <div class="row text-center">
+                        
                         <span class="row1" id="question_1">...let your donkey sleep in a bathtub?</span>
-                            <div id="answer_1">
+                            <div class="answers" id="answer_1">
                                 <p>Correct Answer: Arizona</p>
                                 <p>This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water.</p>
                             </div>
+
                         <span class="row1" id="question_2">...ride your horse over 10mph?</span>
-                        <div id="answer_2">
+                            <div id="answer_2">
                                 <p>Correct Answer: Indiana</p>
-                                <p>This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water.</p>
-                            </div>                        
-                        <span class="row1" id="question_3">...ride your horse over 10mph?</span>
+                                <p></p>
+                            </div>     
+
+                        <span class="row1" id="question_3">...blow your whistle?</span>
                             <div id="answer_3">
-                                <p>Correct Answer: Indiana</p>
-                                <p>This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water.</p>
+                                <p>Correct Answer: </p>
+                                <p></p>
                             </div>
+
+                        <span class="row1" id="question_4">...honk your horn near a sandwich shop after 9 p.m?</span>
+                            <div id="answer_4">
+                                <p>Correct Answer: </p>
+                                <p></p>
+                            </div>      
+
+                        <span class="row1" id="question_5">...send your bestfriend a surprise pizza?</span>
+                            <div id="answer_5">
+                                <p>Correct Answer: </p>
+                                <p></p>
+                            </div>  
+
+                        <span class="row1" id="question_6">...steal an alligator?</span>
+                            <div id="answer_6">
+                                <p>Correct Answer: Louisiana</p>
+                                <p></p>
+                            </div>  
+
+                        <span class="row1" id="question_7">....sing in the street after 11pm?</span>
+                            <div id="answer_7">
+                                <p>Correct Answer: Kansas</p>
+                                <p></p>
+                            </div>  
+                        
+                        <span class="row1" id="question_8">...share your Netflix password?</span>
+                            <div id="answer_8">
+                                <p>Correct Answer: Tennessee</p>
+                                <p></p>
+                            </div>  
+                        
+                        <span class="row1" id="question_9">...lay down on the sidewalk?</span>
+                            <div id="answer_9">
+                                <p>Correct Answer: Nevada</p>
+                                <p></p>
+                            </div>  
+
+                        <span class="row1" id="question_10">...sell junk to a drunk?</span>
+                            <div id="answer_10">
+                                <p>Correct Answer: Wyoming</p>
+                                <p></p>
+                            </div>  
+
+                        <span class="row1" id="question_11">...predict the future?</span>
+                            <div id="answer_11">
+                                <p>Correct Answer: Oregon</p>
+                                <p></p>
+                            </div>  
+                        
+                        <span class="row1" id="question_12">...kill Bigfoot / Sasquatch / Yeti?</span>
+                            <div id="answer_12">
+                                <p>Correct Answer: Washington</p>
+                                <p></p>
+                            </div>  
+
                     
                     </div>
                 </div>
