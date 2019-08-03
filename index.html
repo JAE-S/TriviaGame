@@ -36,6 +36,14 @@
             </div>           
         </header> 
 
+        <audio id="buttonClick">
+            <source src="assets/sound_effects/click.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="soundLost">
+            <source src="assets/sound_effects/end_of_game.mp3" type="audio/mpeg">
+        </audio>
+
         <main class="background"> 
 
             <section class="instructions"><!-- Start of Intro Section -->
@@ -48,14 +56,17 @@
                     <!-- How To Play The Game -->
 
                     <div class="row">
-                            <button class="text-center btn-block" id="playButton">PLAY!</button>
-                        </div>
+                        <button class="text-center btn-block" id="playButton">PLAY!</button>
+                    </div>
                 </div>
 
             </section><!-- End of Intro Section -->
 
             <section class="container2 activeGame"><!-- Start of Active Game-->
-                
+                <!-- <audio id="clock" loop>
+                    <source src="assets/sound_effects/clock.mp3" type="audio/mpeg">
+                </audio> -->
+
                 <div> 
                     <!-- Page Heading -->
                     <div class="row text-center">
@@ -119,77 +130,89 @@
                 </div>
                 <div id="questions">
                     <div class="row text-center">
-                        
+
+                        <!--Question 1-->
                         <span class="row1" id="question_1">...let your donkey sleep in a bathtub?</span>
                             <div class="answers" id="answer_1">
-                                <p>Correct Answer: Arizona</p>
-                                <p>This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water.</p>
+                                <p class="title">Correct Answer: Arizona</p>
+                                <p>"This law was introduced in the 1920's after a local damn brake left a town working to rescue a drifting donkey from flood waters. The brake flooded a rancher's home where the donkey was accustomed to sleeping in the bathtub, which filled with water."</p>
                             </div>
 
+                        <!--Question 2-->
                         <span class="row1" id="question_2">...ride your horse over 10mph?</span>
-                            <div id="answer_2">
+                            <div class="answers" id="answer_2">
                                 <p>Correct Answer: Indiana</p>
-                                <p></p>
+                                <p>"Sec. 441-105: No horse shall be driven or ridden on any street in the city at a speed in excess of ten (10) miles per hour. Such person shall be subject to all applicable traffic regulations that apply to motor vehicles."</p>
                             </div>     
 
-                        <span class="row1" id="question_3">...blow your whistle?</span>
-                            <div id="answer_3">
-                                <p>Correct Answer: </p>
-                                <p></p>
+                        <!--Question 3-->
+                        <span class="row1" id="question_3">...blow a whistle outside?</span>
+                            <div class="answers" id="answer_3">
+                                <p>Correct Answer: Connecticut</p>
+                                <p>"Sec. 153-7: No person not a member of the Police Department of the City shall have in his possession or blow upon, whistle or use in any manner the whistle"</p>
                             </div>
 
+                        <!--Question 4-->
                         <span class="row1" id="question_4">...honk your horn near a sandwich shop after 9 p.m?</span>
-                            <div id="answer_4">
-                                <p>Correct Answer: </p>
-                                <p></p>
+                            <div class="answers" id="answer_4">
+                                <p>Correct Answer: Arkansas</p>
+                                <p>"Sec. 18-54: Sounding of horns at sandwich shops. No person shall sound the horn on a vehicle at any place where cold drinks or sandwiches are served after 9:00 p.m."</p>
                             </div>      
 
+                        <!--Question 5-->
                         <span class="row1" id="question_5">...send your bestfriend a surprise pizza?</span>
-                            <div id="answer_5">
-                                <p>Correct Answer: </p>
-                                <p></p>
-                            </div>  
-
-                        <span class="row1" id="question_6">...steal an alligator?</span>
-                            <div id="answer_6">
+                            <div class="answers" id="answer_5">
                                 <p>Correct Answer: Louisiana</p>
-                                <p></p>
+                                <p>"Acts 1999, No. 1060: It is a $500 fine to instruct a pizza delivery man to deliver a pizza to your friend without them knowing."</p>
                             </div>  
 
+                        <!--Question 6-->
+                        <span class="row1" id="question_6">...steal an alligator?</span>
+                            <div class="answers" id="answer_6">
+                                <p>Correct Answer: Louisiana</p>
+                                <p>"RS 14:67.13 67.13: Theft of an alligator. Theft of an alligator is the misappropriation or taking of an alligator, an alligator's skin, or a part of an alligator, whether dead or alive, belonging to another, either without the consent of the other to the misappropriation or taking."</p>
+                            </div>  
+
+                        <!--Question 7-->
                         <span class="row1" id="question_7">....sing in the street after 11pm?</span>
-                            <div id="answer_7">
+                            <div class="answers" id="answer_7">
                                 <p>Correct Answer: Kansas</p>
-                                <p></p>
+                                <p>"Sec. 54-158: Singing on the public streets, particularly between the hours of 11:00 p.m. and 7:00 a.m... of any persons in the vicinity, is unlawful."</p>
                             </div>  
                         
+                        <!--Question 8-->
                         <span class="row1" id="question_8">...share your Netflix password?</span>
-                            <div id="answer_8">
+                            <div class="answers" id="answer_8">
                                 <p>Correct Answer: Tennessee</p>
-                                <p></p>
+                                <p>"Sec. 39-14-104: Targets the friend who is using the primary account holder’s password without permission from the streaming service.  The person has “obtain[ed] services by . . . any other means to avoid payment for the service.”  The second provision targets the account holder who has shared his password with a friend.  That person has control of a subscription service and diverts it to his friend, who is not entitled to the service.The punishment for violation of this provision ranges from a misdemeanor to a felony depending on the value of the services rendered."</p>
                             </div>  
                         
+                        <!--Question 9-->
                         <span class="row1" id="question_9">...lay down on the sidewalk?</span>
-                            <div id="answer_9">
+                            <div class="answers" id="answer_9">
                                 <p>Correct Answer: Nevada</p>
-                                <p></p>
+                                <p>"Sec. 8.12.015: No person shall sit or lie down upon a public sidewalk, or upon a blanket, chair, stool, or any other object placed upon a public sidewalk."</p>
                             </div>  
 
+                        <!--Question 10-->
                         <span class="row1" id="question_10">...sell junk to a drunk?</span>
-                            <div id="answer_10">
+                            <div class="answers" id="answer_10">
                                 <p>Correct Answer: Wyoming</p>
-                                <p></p>
+                                <p>"Sec. 33-18-105: Purchase from intoxicated persons. No person, firm or corporation engaged in the buying or selling of junk metals, rubber, rags or paper, shall purchase any articles from any person appearing to be intoxicated."</p>
                             </div>  
 
+                        <!--Question 11-->
                         <span class="row1" id="question_11">...predict the future?</span>
-                            <div id="answer_11">
+                            <div class="answers" id="answer_11">
                                 <p>Correct Answer: Oregon</p>
-                                <p></p>
+                                <p>"Sec. 5.08.110:No person shall for hire or profit engage in the practice of occult arts, either public or private. Violation of this Section is considered to be an "unclassified misdemeanor"."</p>
                             </div>  
                         
+                        <!--Question 12-->    
                         <span class="row1" id="question_12">...kill Bigfoot / Sasquatch / Yeti?</span>
-                            <div id="answer_12">
+                            <div class="answers" id="answer_12">
                                 <p>Correct Answer: Washington</p>
-                                <p></p>
+                                <p>"Skamania County, Washington, passed a law in 1969 deeming the "slaying of Bigfoot to be a felony and punishable by 5 years in prison." The law was later amended, designating Bigfoot as an endangered species."</p>
                             </div>  
 
                     

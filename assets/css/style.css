@@ -152,9 +152,6 @@ p {
   color: #777777;
 }
 
-
-
-
 /*
   ========================================
   Typography - Trivia Project
@@ -252,7 +249,6 @@ h3 {
 }
 
 .answers p {
-
   font-family: Arial;
   font-size: 20px; 
   text-align: left;   
@@ -270,10 +266,6 @@ h3 {
   ========================================
 */
 
-/* .Laws {
-  font-size: 24px; 
-  line-height: 1.5;
-} */
 
 table {
   border-spacing: 80px;
@@ -354,7 +346,6 @@ table {
   color:black;
   background: white;
 }
-
 
 .correctMain { 
   background: white; 

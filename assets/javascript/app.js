@@ -39,7 +39,7 @@ GLOBAL VARIABLES
 
             }, {
             // Question 3
-            question: "...blow your whistle?",
+            question: "...blow a whistle outside?",
             rightAnswer: "Connecticut",
             options: ["Connecticut", "Massachusetts", "Rhode Island", "Main"],
             
@@ -105,8 +105,12 @@ GLOBAL VARIABLES
 MEDIA
 ========================================
 */
-// var audio = new Audio();
-    
+// var clock = document.getElementById("clock");
+// console.log(clock);
+var buttonClick = document.getElementById("buttonClick");
+var clock = document.getElementById("clock");
+var soundLost = document.getElementById("soundLost");
+
 /*
 ========================================
 START GAME - FROM INTRO PAGE 
@@ -118,7 +122,7 @@ START GAME - FROM INTRO PAGE
         $(".instructions").hide();        // Hides instructions
         generateTrivia();                 // Generates questions & answers
         start();                          // starts timer 
-        
+        buttonClick.play();
     });    
 
 /*
@@ -130,6 +134,8 @@ var resultsAnswers = [];
 
     $("#submit").on('click', function() { 
         submit();
+        buttonClick.play();
+        clock.pause();
     });    
         function submit() {
         correct = 0;
@@ -186,6 +192,7 @@ RESET GAME
         $(".results").hide();                   // Hides results
         reset();                               // Resets timer 
         answers();                       // Toggles between correct q & a's
+        // buttonClick.play();
     });    
 
 /*
@@ -239,6 +246,7 @@ Count Down Timer Functions
         if (!clockRunning) {
             intervalId = setInterval(decrement, 1000); // setInterval to initiate the count
             clockRunning = true;                       // Sets the countDown to running
+            clock.play();
         }
     }
     function stop() {
@@ -246,6 +254,8 @@ Count Down Timer Functions
         clockRunning = false;         // Stops the countDown
         $(".activeGame").hide();             // Hides activeGame 
         $(".results").show();               // Shows results
+        // clock.pause();
+        // soundLost.play(); 
        
     }
     function decrement() {
@@ -257,6 +267,8 @@ Count Down Timer Functions
         if (time === -1) {
             stop();   
             submit();                 // If time = 0 stop the clock
+            clock.pause();
+            soundLost.play();
             // alert("Time Up!");        //  Alert the user that time is up.
         }
     }
@@ -300,43 +312,56 @@ Toggle Answers in Results
 
         $("#rightAnswers").on('click', function(){
             $("#questions").toggle();
+            buttonClick.play();
         });
     
         $("#question_1").on('click', function(){
             $("#answer_1").toggle();
+            buttonClick.play();
         });
         $("#question_2").on('click', function(){
             $('#answer_2').toggle();
+            buttonClick.play();
         });
         $("#question_3").on('click', function(){
             $('#answer_3').toggle();
+            buttonClick.play();
         });
         $("#question_4").on('click', function(){
             $('#answer_4').toggle();
+            buttonClick.play();
         });
         $("#question_5").on('click', function(){
             $('#answer_5').toggle();
+            buttonClick.play();
         });
         $("#question_6").on('click', function(){
             $('#answer_6').toggle();
+            buttonClick.play();
         });
         $("#question_7").on('click', function(){
             $('#answer_7').toggle();
+            buttonClick.play();
         });
         $("#question_8").on('click', function(){
             $('#answer_8').toggle();
+            buttonClick.play();
         });
         $("#question_9").on('click', function(){
             $('#answer_9').toggle();
+            buttonClick.play();
         });
         $("#question_10").on('click', function(){
             $('#answer_10').toggle();
+            buttonClick.play();
         });
         $("#question_11").on('click', function(){
             $('#answer_11').toggle();
+            buttonClick.play();
         });
         $("#question_12").on('click', function(){
             $('#answer_12').toggle();
+            buttonClick.play();
         });
     }
 
