@@ -122,7 +122,7 @@ START GAME - FROM INTRO PAGE
         $(".instructions").hide();        // Hides instructions
         generateTrivia();                 // Generates questions & answers
         start();                          // starts timer 
-        buttonClick.play();
+        // buttonClick.play();
     });    
 
 /*
@@ -246,7 +246,7 @@ Count Down Timer Functions
         if (!clockRunning) {
             intervalId = setInterval(decrement, 1000); // setInterval to initiate the count
             clockRunning = true;                       // Sets the countDown to running
-            clock.play();
+            // clock.play();
         }
     }
     function stop() {
